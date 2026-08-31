@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DarkRP Classic — 2013</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
+    color: #ddd;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    height: 62px;
+    background: #1b1b1b;
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+    padding: 0 45px;
+    box-shadow: 0 2px 10px #000;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #eee;
+    letter-spacing: 2px;
+}
+
+.logo small {
+    font-size: 11px;
+    color: #777;
+    margin-left: 7px;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    color: #999;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.85)),
+        radial-gradient(circle at 50% 40%, #555, #111 72%);
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 30px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid #555;
+    background: rgba(0,0,0,.5);
+    color: #aaa;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 64px;
+    color: white;
+    letter-spacing: 4px;
+    text-shadow: 3px 4px 8px #000;
+}
+
+.hero h2 {
+    margin: 15px 0;
+    font-weight: normal;
+    color: #aaa;
+    font-size: 21px;
+}
+
+.hero p {
+    color: #888;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.ip {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 25px;
+    background: #090909;
+    border: 1px solid #555;
+    font-family: monospace;
+    color: #ddd;
+    font-size: 18px;
+    box-shadow: inset 0 0 10px #000;
+}
+
+.connect {
+    display: block;
+    margin: 25px auto 0;
+    padding: 15px 45px;
+    background: linear-gradient(#4c4c4c, #242424);
+    color: white;
+    border: 1px solid #777;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.connect:hover {
+    background: linear-gradient(#5d5d5d, #303030);
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 70px 25px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin: 0 0 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 45px;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+    background: #171717;
+    border-bottom: 1px solid #292929;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.stat {
+    background: #202020;
+    border: 1px solid #333;
+    padding: 25px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 30px;
+    color: #eee;
+    font-weight: bold;
+}
+
+.stat-name {
+    margin-top: 7px;
+    color: #777;
+    font-size: 13px;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    background: #191919;
+}
+
+.about-box {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-box p {
+    color: #999;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+/* ================= FEATURES ================= */
+
+.features {
+    background: #121212;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 28px;
+    background: #1d1d1d;
+    border: 1px solid #333;
+    min-height: 180px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #eee;
+    font-size: 19px;
+}
+
+.card p {
+    color: #888;
+    line-height: 1.7;
+}
+
+/* ================= RULES ================= */
+
+.rules {
+    background: #111;
+}
+
+.rules-list {
+    max-width: 800px;
+    margin: auto;
+}
+
+.rule {
+    display: flex;
+    gap: 20px;
+    padding: 18px;
+    margin-bottom: 10px;
+    background: #1c1c1c;
+    border-left: 3px solid #555;
+}
+
+.rule-number {
+    color: #777;
+    font-weight: bold;
+}
+
+.rule-text {
+    color: #aaa;
+}
+
+/* ================= CONNECT ================= */
+
+.connect-section {
+    background: #181818;
+    text-align: center;
+}
+
+.copy-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #292929;
+    border: 1px solid #555;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background: #3a3a3a;
+}
+
+/* ================= LETTER BUTTON ================= */
+
+.letter-section {
+    background: #0d0d0d;
+    text-align: center;
+    border-top: 1px solid #292929;
+}
+
+.letter-section p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.letter-button {
+    padding: 15px 45px;
+    background: #242424;
+    color: #ddd;
+    border: 1px solid #666;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.letter-button:hover {
+    background: #383838;
+    color: white;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 25px;
+    background: #090909;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+}
+
+/* ================= LETTER WINDOW ================= */
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0,0,0,.88);
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.letter {
+    max-width: 780px;
+    margin: 50px auto;
+    padding: 50px;
+    background: #eee;
+    color: #222;
+    border: 2px solid #555;
+    box-shadow: 0 20px 70px #000;
+}
+
+.letter h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #222;
+}
+
+.letter-line {
+    height: 1px;
+    background: #aaa;
+    margin: 25px 0 30px;
+}
+
+.letter-text {
+    white-space: pre-line;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.close {
+    display: block;
+    margin: 35px auto 0;
+    padding: 11px 35px;
+    border: none;
+    background: #292929;
+    color: white;
+    cursor: pointer;
+}
+
+.close:hover {
+    background: #111;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 750px) {
+
+    header {
+        padding: 0 18px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        margin: 15px auto;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .ip {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        DARK RP <small>CLASSIC 2013</small>
+    </div>
+
+    <nav>
+        <a href="#about">О сервере</a>
+        <a href="#features">Возможности</a>
+        <a href="#rules">Правила</a>
+        <a href="#connect">Подключение</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            CLASSIC ROLEPLAY
+        </div>
+
+        <h1>DarkRP</h1>
+
+        <h2>
+            Возвращаем атмосферу старого RolePlay
+        </h2>
+
+        <p>
+            Классический игровой сервер для тех, кто помнит старые времена.
+            Создавай свою историю, выбирай профессию, взаимодействуй
+            с другими игроками и развивай свой город.
+        </p>
+
+        <div class="ip">
+            170.168.115.84:27015
+        </div>
+
+        <button class="connect" onclick="copyIP()">
+            ПОДКЛЮЧИТЬСЯ К СЕРВЕРУ
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Сервер в цифрах
+        </h2>
+
+        <p class="section-subtitle">
+            Всё необходимое для классического RP
+        </p>
+
+        <div class="stat-grid">
+
+            <div class="stat">
+                <div class="stat-number">64</div>
+                <div class="stat-name">СЛОТА</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-name">РАБОТА СЕРВЕРА</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">2013</div>
+                <div class="stat-name">СТИЛЬ</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">RP</div>
+                <div class="stat-name">РЕЖИМ</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            О сервере
+        </h2>
+
+        <p class="section-subtitle">
+            Старый добрый DarkRP
+        </p>
+
+        <div class="about-box">
+
+            <p>
+                DarkRP Classic — сервер, созданный в духе старых
+                RolePlay-проектов. Выбирай профессию, зарабатывай деньги,
+                покупай недвижимость и создавай собственную историю.
+            </p>
+
+            <p>
+                Наша цель — сохранить атмосферу старого Garry's Mod,
+                когда главное было не количество дополнений,
+                а общение между игроками.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Возможности
+        </h2>
+
+        <p class="section-subtitle">
+            Всё для хорошего RolePlay
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>👮 Профессии</h3>
+                <p>
+                    Полиция, медики, мэры, наёмники,
+                    продавцы и множество других ролей.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🏠 Недвижимость</h3>
+                <p>
+                    Покупай дома, магазины и помещения
+                    и создавай собственный бизнес.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>💰 Экономика</h3>
+                <p>
+                    Зарабатывай деньги, открывай бизнес
+                    и развивай своего персонажа.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🔧 Classic RP</h3>
+                <p>
+                    Минимум лишнего — максимум атмосферы
+                    старого RolePlay.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>👥 Сообщество</h3>
+                <p>
+                    Общение, совместные истории
+                    и взаимодействие между игроками.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🛡 Администрация</h3>
+                <p>
+                    Команда проекта следит за порядком
+                    и помогает игрокам.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RULES ================= -->
+
+<section class="rules" id="rules">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Основные правила
+        </h2>
+
+        <p class="section-subtitle">
+            Уважай игроков и соблюдай RolePlay
+        </p>
+
+        <div class="rules-list">
+
+            <div class="rule">
+                <div class="rule-number">01</div>
+                <div class="rule-text">
+                    Соблюдай правила сервера и указания администрации.
+                </div>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">02</div>
+                <div class="rule-text">
+                    Не мешай другим игрокам наслаждаться игрой.
+                </div>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">03</div>
+                <div class="rule-text">
+                    Старайся соблюдать атмосферу RolePlay.
+                </div>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">04</div>
+                <div class="rule-text">
+                    Уважай участников проекта.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONNECT ================= -->
+
+<section class="connect-section" id="connect">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Как подключиться?
+        </h2>
+
+        <p class="section-subtitle">
+            Открой консоль Garry's Mod и введи IP сервера
+        </p>
+
+        <div class="ip">
+            170.168.115.84:27015
+        </div>
+
+        <br>
+
+        <button class="copy-button" onclick="copyIP()">
+            Скопировать IP
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LETTER BUTTON ================= -->
+
+<section class="letter-section">
+
+    <p>
+        Есть ещё одно сообщение, которое осталось после всего произошедшего.
+    </p>
+
+    <button class="letter-button" onclick="openLetter()">
+        ✉ ОТКРЫТЬ ПИСЬМО
+    </button>
+
+</section>
+
+
+<footer>
+    DarkRP Classic • 2013 • 170.168.115.84:27015
+</footer>
+
+
+<!-- ================= LETTER ================= -->
+
+<div class="overlay" id="letterOverlay">
+
+    <div class="letter">
+
+        <h2>Личное письмо</h2>
+
+        <div class="letter-line"></div>
+
+        <div class="letter-text">Бухтар, привет.
+
+Я не думаю, что я смогу и захочу остаться на проекте. Ты можешь задаться вопросом, почему я хочу уйти, а я отвечу: я устал.
+
+Ты снимаешь меня по беспределу, например за то, что я просто кикал тебя с ГС-канала, когда ты сам кикал людей на раз-два.
+
+И подумай: когда ты нарушаешь и, можно сказать, сам тянешь проект на дно, при этом не собираешься удалять правило, что супер-админам всё можно.
+
+После ухода Твиззи кто остался? Ты, да Текер — больше нету на серваке хорошего кодера.
+
+Чтож, на этом, наверное, всё. Может быть, ещё вернусь на проект 👋
+
+Я могу вернуться когда-то.</div>
+
+        <button class="close" onclick="closeLetter()">
+            Закрыть письмо
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function copyIP() {
+
+    const ip = "170.168.115.84:27015";
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(ip);
+    }
+
+    alert("IP сервера скопирован: " + ip);
+}
+
+function openLetter() {
+
+    document.getElementById("letterOverlay").style.display = "block";
+
+    document.body.style.overflow = "hidden";
+}
+
+function closeLetter() {
+
+    document.getElementById("letterOverlay").style.display = "none";
+
+    document.body.style.overflow = "auto";
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeLetter();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
